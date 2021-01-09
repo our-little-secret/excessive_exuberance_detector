@@ -19,6 +19,7 @@ defmodule ExcessiveExuberanceDetector.MixProject do
 
   defp deps do
     [
+      {:httpoison, "~> 1.7"},
       {:floki, "~> 0.29.0"}
     ]
   end
