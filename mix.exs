@@ -20,8 +20,9 @@ defmodule ExcessiveExuberanceDetector.MixProject do
   defp deps do
     [
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:floki, "~> 0.29.0"},
       {:httpoison, "~> 1.7"},
-      {:floki, "~> 0.29.0"}
+      {:table_rex, "~> 3.1"}
     ]
   end
 end
