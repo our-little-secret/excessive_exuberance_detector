@@ -19,7 +19,7 @@ be able to, again from within the project folder, type: `mix test`
 ## Criteria for determining "overly positive" reviews
 ### Summary
 Each review is scored using a modified sentiment analysis process using the
-AIFF-165 word list to determine valence.
+AIFF-165 word list to determine a valence score.
 
 ### How it is modified
 Out of the box the sentiment analysis library used does not take into account
