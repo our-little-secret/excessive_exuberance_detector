@@ -44,15 +44,4 @@ defmodule ExcessiveExuberanceDetector.ExuberanceRater do
 
     [positivity_score / word_count, review]
   end
-
-  # TODO: remove these two
-  defp split_string_by_character(review) do
-    review
-    |> String.graphemes()
-  end
-
-  defp count_exclamation_points(review) do
-    review
-    |> Enum.count(fn letter -> letter == "!" end)
-  end
 end
