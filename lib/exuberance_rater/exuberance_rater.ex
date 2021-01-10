@@ -13,18 +13,27 @@ defmodule ExcessiveExuberanceDetector.ExuberanceRater do
   def rate_single_review(review) do
     review
     |> set_initial_score
-    |> calculate_exclamation_point_value
+    |> perform_sentiment_analysis
+    |> calculate_average_sentiment_value_per_word
   end
 
   def set_initial_score(review), do: [0, review]
 
-  def calculate_exclamation_point_value([positivity_score, review]) do
-    exclamation_score =
+  def perform_sentiment_analysis([positivity_score, review]) do
+    new_positivity_score =
       review
-      |> split_string_by_character
-      |> count_exclamation_points
+      |> Veritaserum.analyze
 
-    [positivity_score + exclamation_score, review]
+    [positivity_score + new_positivity_score, review]
+  end
+
+  def calculate_average_sentiment_value_per_word([positivity_score, review]) do
+    word_count =
+      review
+      |> String.split(" ")
+      |> Enum.count
+
+    [positivity_score / word_count, review]
   end
 
   defp split_string_by_character(review) do

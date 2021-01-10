@@ -22,7 +22,9 @@ defmodule ExcessiveExuberanceDetector.MixProject do
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:floki, "~> 0.29.0"},
       {:httpoison, "~> 1.7"},
-      {:table_rex, "~> 3.1"}
+      {:table_rex, "~> 3.1"},
+      {:jason, "~> 1.2"},
+      {:veritaserum, "~> 0.2.2"}
     ]
   end
 end

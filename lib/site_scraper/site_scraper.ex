@@ -69,12 +69,19 @@ defmodule ExcessiveExuberanceDetector.SiteScraper do
   def return_just_review({_tag, _class_list, [review]}) do
     review
     |> replace_return_newlines_with_spaces
+    |> replace_apostrophe_with_single_quote
     |> String.trim
   end
 
   defp replace_return_newlines_with_spaces(review) do
     review
     |> String.replace("\r\n", " ")
+  end
+
+  # This was causing an issue with parsing.
+  defp replace_apostrophe_with_single_quote(review) do
+    review
+    |> String.replace("’", "'")
   end
 
   @doc """

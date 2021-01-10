@@ -46,8 +46,8 @@ defmodule ExcessiveExuberanceDetector.ConsolePrinter do
   end
 
   defp build_display_table(reviews) do
-    title = "Top 3 Overly Positive Reviews"
-    headers = ["Rank", "Review", "Score"]
+    title = "Top 3 Overly Positive Reviews from McKaig Chevrolet Buick"
+    headers = ["Rank", "Review", "Score (Avg Per Word Positivity)"]
     rows = reviews
 
     TableRex.quick_render!(rows, headers, title)
