@@ -10,6 +10,7 @@ defmodule ExcessiveExuberanceDetector.ExuberanceRater do
 
   # @spec rate_reviews(nonempty_list(String.t())) :: rated_reviews()
   def rate_reviews(raw_reviews) do
+    IO.puts("Rating reviews...")
     raw_reviews
     |> Enum.map(&rate_single_review/1)
   end

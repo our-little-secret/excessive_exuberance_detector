@@ -90,6 +90,9 @@ defmodule ExcessiveExuberanceDetector.SiteScraper do
   """
   @spec get_single_reviews_page(String.t()) :: String.t()
   def get_single_reviews_page(url) do
+    IO.puts("Scraping #{get_page(url)}...")
     @review_request_service.get_reviews_page(url)
   end
+
+  defp get_page(url), do: url |> String.split("/") |> Enum.at(5)
 end
