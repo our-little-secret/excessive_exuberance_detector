@@ -4,6 +4,7 @@ defmodule ExcessiveExuberanceDetector.ConsolePrinter do
   prints them to the console.
   """
 
+  # @spec print_top_three_to_console([[float, String.t()]]) :: :ok
   def print_top_three_to_console(rated_reviews) do
     rated_reviews
     |> sort_reviews_desc
@@ -14,6 +15,7 @@ defmodule ExcessiveExuberanceDetector.ConsolePrinter do
     |> print_to_console
   end
 
+  # @spec sort_reviews_desc([float, String.t()]) :: []
   defp sort_reviews_desc(rated_reviews) do
     rated_reviews
     |> Enum.sort(:desc)
