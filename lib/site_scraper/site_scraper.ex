@@ -28,7 +28,7 @@ defmodule ExcessiveExuberanceDetector.SiteScraper do
   @spec get_review_pages(nonempty_list(String.t())) :: nonempty_list(String.t())
   def get_review_pages(pages_to_get) do
     pages_to_get
-    |> Enum.map(&get_single_reviews_page/1)
+    |> Enum.map(&@review_request_service.get_reviews_page/1)
   end
 
   @doc """
@@ -71,28 +71,19 @@ defmodule ExcessiveExuberanceDetector.SiteScraper do
     review
     |> replace_return_newlines_with_spaces
     |> replace_apostrophe_with_single_quote
-    |> String.trim
+    |> String.trim()
   end
 
+  @spec replace_return_newlines_with_spaces(String.t()) :: String.t()
   defp replace_return_newlines_with_spaces(review) do
     review
     |> String.replace("\r\n", " ")
   end
 
   # This was causing an issue with parsing.
+  @spec replace_apostrophe_with_single_quote(String.t()) :: String.t()
   defp replace_apostrophe_with_single_quote(review) do
     review
     |> String.replace("’", "'")
   end
-
-  @doc """
-  Takes a URL and makes an HTTP request to get the HTML.
-  """
-  @spec get_single_reviews_page(String.t()) :: String.t()
-  def get_single_reviews_page(url) do
-    IO.puts("Scraping #{get_page(url)}...")
-    @review_request_service.get_reviews_page(url)
-  end
-
-  defp get_page(url), do: url |> String.split("/") |> Enum.at(5)
 end
