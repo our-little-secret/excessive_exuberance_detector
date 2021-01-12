@@ -7,6 +7,9 @@ Detecting excessive exuberance since 2021™️
 __Prerequisites__
 To run the app and tests you'll need: `Erlang/OTP 23` & `Elixir 1.11.3`
 
+Also app was developed on Mac OS and not tested on other OSes but probably works
+on them.
+
 ### Running App
 From within the project folder just type: `./excessive_exuberance_detector` and
 within a short time you should see output in the console. This is an executable.
