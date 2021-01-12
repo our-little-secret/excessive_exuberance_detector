@@ -27,6 +27,7 @@ defmodule ExcessiveExuberanceDetector.SiteScraper.ReviewRequestServiceMock do
     end
   end
 
+  # checks the page number contained in the url to return different results per page
   defp is_url_page_number?(page_number, url) do
     String.contains?(url, "page#{page_number}")
   end
