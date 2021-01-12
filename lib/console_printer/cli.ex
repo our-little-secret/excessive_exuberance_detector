@@ -1,17 +1,14 @@
 defmodule ExcessiveExuberanceDetector.ConsolePrinter.CLI do
   @moduledoc """
-  Entry point for command line functionality.
+  Entry point for command line functionality. Configured to be used via the
+  escript key inside the `project` function in mix.exs.
   """
 
   @doc """
-  Run by typing `./excessive_exuberance_detector` on the CLI in the context of
-  the root of this project
+  Ran by the configured escript
   """
   @spec main(any) :: :ok
   def main(_args) do
-    # options = [switches: [average_sentiment: :boolean], aliases: [as: :average_sentiment]]
-    #
-    # {opts, _, _} = OptionParser.parse(args, options)
-    ExcessiveExuberanceDetector.rank_reviews
+    ExcessiveExuberanceDetector.rank_reviews()
   end
 end
