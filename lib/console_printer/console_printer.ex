@@ -4,6 +4,7 @@ defmodule ExcessiveExuberanceDetector.ConsolePrinter do
   and then prints them to the console.
   """
   alias ExcessiveExuberanceDetector.ExuberanceRater
+
   @io_request_service Application.get_env(
                         :excessive_exuberance_detector,
                         :io_request_service
